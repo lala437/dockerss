@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+     ss:
+             build:
+                  context: .
+             environment:
+                        SS_SELECT: 3     
+                        SS_PORT: 9080
+                        SS_PASS: ss123123
+                        SS_CIPHER: chacha20-ietf
+             ports:
+               - "9080:9080"
+             container_name: dockerss
+             restart: always
+             networks:
+                     - mynet          
+networks: 
+     mynet: 
+       driver: bridge    
